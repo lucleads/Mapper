@@ -96,7 +96,7 @@ To make our mapper find the source for the value of each field, there are three 
     ```
   
 ***NOTE:** To define a map attribute, we must follow the next structure:<br>
-    #[Map( <br>+<br> `layers up the value separated by dots`<br>+<br>`field name in target object`<br>+<br>]
+    `#[Map(` <br>+<br> `layers up the value separated by dots`<br>+<br>`field name in target object`<br>+<br>`]`
 
 ## REQUIREMENTS
 
