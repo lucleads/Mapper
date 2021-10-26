@@ -18,11 +18,8 @@ use ReflectionException;
 #[Map('Phones.phoneNumbers', 'telephoneNumbers')]
 final class PersonOutputDtoMapper extends Mapper
 {
-    private Dto $dto;
-
     public function __construct(private Person $person)
     {
-        $this->dto = new PersonOutputDto();
     }
 
     /**
