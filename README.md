@@ -67,33 +67,33 @@ To make our mapper find the source for the value of each field, there are three 
     
 - In the  specific MapperClass, we can define the layers to find the value as a class Map attribute.
   - *Example:*
-  ``` json
-    [
-      "TargetObject",
-      {
-        "age": ?
-      }
-    ]
-    ```
-   ``` json
-    [
-        "SourceObject":
+    ``` json
+      [
+        "TargetObject",
         {
-          "Age":
-          {
-            "value": 40
-          }
+          "age": ?
         }
-    ]
-    ```
-  
-    ``` java
-    #[Map('Age.value', 'age')]
-    class SourceObjectMapper
-    {
-        //logic
-    }
-    ```
+      ]
+      ```
+     ``` json
+      [
+          "SourceObject":
+          {
+            "Age":
+            {
+              "value": 40
+            }
+          }
+      ]
+      ```
+
+      ``` java
+      #[Map('Age.value', 'age')]
+      class SourceObjectMapper
+      {
+          //logic
+      }
+      ```
   
 ***NOTE:** To define a map attribute, we must follow the next structure:<br>
     `#[Map(` <br>+<br> `layers up the value separated by dots as string`<br>+<br>`,`<br>+<br>`field name in target object as string`<br>+<br>`]`
