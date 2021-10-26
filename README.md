@@ -55,7 +55,7 @@ To make our mapper find the source for the value of each field, there are three 
         }
     ]
     ```
-    ``` java
+    ``` php
     class SourceObject 
     {
         private int $lifetime;
@@ -89,7 +89,7 @@ To make our mapper find the source for the value of each field, there are three 
       ]
       ```
 
-      ``` java
+      ``` php
       #[Map('Age.value', 'age')]
       class SourceObjectMapper
       {
