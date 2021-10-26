@@ -81,7 +81,7 @@ To make our mapper find the source for the value of each field, there are three 
         {
           "Age":
           {
-            "value": 40;
+            "value": 40
           }
         }
     ]
