@@ -58,6 +58,8 @@ To make our mapper find the source for the value of each field, there are three 
     ``` java
     class SourceObject 
     {
+        private int $lifetime;
+        
         public function getAge(): int
         {
             return $this->lifetime;
