@@ -46,6 +46,11 @@ final class Person
         return ["941652365", "658741342"];
     }
 
+    public function getFirstSurname(): string
+    {
+        return 'Prueba';
+    }
+
     public function getPhones(): Phones
     {
         return $this->phoneNumbers;
