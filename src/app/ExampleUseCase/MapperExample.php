@@ -25,12 +25,13 @@ class MapperExample
         $dtoFields = $mapper->map()->getFields();
         foreach ($dtoFields as $fieldName => $fieldValue) {
             if (is_array($fieldValue)) {
-                echo '<h1>' . $fieldName . ' : </h1>';
+                echo '<h1>' . $fieldName . ' : <br>';
                 foreach ($fieldValue as $value) {
-                    echo '<br>' . $value . '<br>';
+                    echo '-           ' . $value . '<br>';
                 }
+                echo '</h1>';
             } else {
-                echo '<br>' . $fieldName . ' : ' . $fieldValue . '<br>';
+                echo '<h1>' . $fieldName . ' : ' . $fieldValue . '</h1>';
             }
         }
     }
