@@ -1,0 +1,15 @@
+version: '3.3'
+
+services:
+  # Main application service
+  php:
+    container_name: ${CONTAINER_NAME}_${PHP_VERSION}
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        PHP_VERSION: ${PHP_VERSION}
+    ports:
+      - ${PORT}:80
+    volumes:
+      - ./src:/var/www/html
