@@ -18,7 +18,7 @@ class MapperExample
     /**
      * @throws ReflectionException
      */
-    public function map()
+    public function mapRandomPerson()
     {
         $person = new Person(33, new Name("Roger Swagger Reynolds"), new Phones(["111111111", "222222222"]));
         $mapper = new PersonOutputDtoMapper($person);
