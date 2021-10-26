@@ -2,7 +2,7 @@
 
 namespace App\Shared;
 
-use App\Shared\Attributes\MapAttr;
+use App\Shared\Attributes\Map;
 use App\Shared\Dtos\Dto;
 use ReflectionClass;
 use ReflectionException;
@@ -35,7 +35,7 @@ abstract class Mapper
             } else {
                 foreach ($mapperAttributes as $mapperAttribute) {
                     $attributeInstance = $mapperAttribute->newInstance();
-                    if ($attributeInstance instanceof MapAttr) {
+                    if ($attributeInstance instanceof Map) {
                         if ($dtoFieldName === $attributeInstance->getDtoField()) {
                             self::searchFieldSourceInMapperAttributes($attributeInstance, $entity, $dtoInstance, $dtoFieldName);
                         } else {
@@ -69,13 +69,13 @@ abstract class Mapper
 
     /**
      * searchSourceInMapperAttributes
-     * @param MapAttr $attributeInstance
+     * @param Map $attributeInstance
      * @param $entity
      * @param mixed $dtoInstance
      * @param mixed $dtoFieldName
      * @throws ReflectionException
      */
-    private static function searchFieldSourceInMapperAttributes(MapAttr $attributeInstance, $entity, mixed $dtoInstance, mixed $dtoFieldName): void
+    private static function searchFieldSourceInMapperAttributes(Map $attributeInstance, $entity, mixed $dtoInstance, mixed $dtoFieldName): void
     {
         $sourceLayers = $attributeInstance->getLayers();
         $lastLayerValue = self::getValueLastLayer($entity, $sourceLayers);

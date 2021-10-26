@@ -4,7 +4,7 @@ namespace App\ExampleUseCase\Mappers;
 
 use App\ExampleUseCase\Dtos\PersonOutputDto;
 use App\ExampleUseCase\Entities\Person;
-use App\Shared\Attributes\MapAttr;
+use App\Shared\Attributes\Map;
 use App\Shared\Dtos\Dto;
 use App\Shared\Mapper;
 use ReflectionException;
@@ -14,8 +14,8 @@ use ReflectionException;
  * @package ${NAMESPACE}
  * @internal
  */
-#[MapAttr('Name.name', 'firstName')]
-#[MapAttr('Phones.phoneNumbers', 'telephoneNumbers')]
+#[Map('Name.name', 'firstName')]
+#[Map('Phones.phoneNumbers', 'telephoneNumbers')]
 final class PersonOutputDtoMapper extends Mapper
 {
     private Dto $dto;

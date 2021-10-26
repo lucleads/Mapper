@@ -9,7 +9,7 @@ use Attribute;
  * @package App\Shared\Attributes
  */
 #[Attribute(Attribute::IS_REPEATABLE | Attribute::TARGET_CLASS)]
-class MapAttr
+class Map
 {
     private array $layers;
     private string $dto;
