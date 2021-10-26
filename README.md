@@ -51,7 +51,7 @@ To make our mapper find the source for the value of each field, there are three 
      [
         "SourceObject":
         {
-           //Class fields, but not age named field
+           "lifetime": 40
         }
     ]
     ```
@@ -60,7 +60,7 @@ To make our mapper find the source for the value of each field, there are three 
     {
         public function getAge(): int
         {
-            //return age;
+            return $this->lifetime;
         }
     }
     ```
