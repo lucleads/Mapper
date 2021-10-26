@@ -1,3 +1,5 @@
+ARG PHP_VERSION
+
 FROM composer as dependency-manager
 
 WORKDIR /app
@@ -13,17 +15,15 @@ RUN composer install \
 COPY . /app/
 RUN composer dump-autoload --no-dev --optimize --classmap-authoritative
 
-ARG PHP_VERSION
-
 # Base image
 FROM php:${PHP_VERSION}-apache
 
 # Install PHP extensions
 RUN pecl install xdebug \
-    && docker-php-ext-enable xdebug \
+    && docker-php-ext-enable xdebug
 
 # Copy installed dependencies
-COPY php.ini /usr/local/etc/php/php.ini
+#COPY php.ini /usr/local/etc/php/php.ini
 
 # Aliases
 RUN echo 'alias com="composer"' >> ~/.bashrc
