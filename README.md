@@ -15,7 +15,7 @@ This library works in a similar way to libraries like MapStruct in other languag
 To deploy de application modify de `.env` file, located in the project root with your local settings, open a terminal in the root directory and execute the next commands:
 
 - `composer install` *[to install composer dependencies]*
-- `docker-compose up -d`. *[to build and deploy the docker container]*
+- `docker-compose up -d` *[to build and deploy the docker container]*
 
 ## REQUIREMENTS
 
