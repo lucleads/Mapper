@@ -119,12 +119,12 @@ abstract class Mapper
      */
     private static function getValueLastLayer($entity, array $sourceLayers): mixed
     {
-        $nextAttributte = $entity;
+        $nextAttribute = $entity;
         foreach ($sourceLayers as $layer) {
-            $nextLayerReflection = new ReflectionClass($nextAttributte);
-            $nextLayerRelectionGetAttributeMethod = $nextLayerReflection->getMethod('get' . $layer);
-            $nextAttributte = $nextLayerRelectionGetAttributeMethod->invoke($nextAttributte);
+            $nextLayerReflection = new ReflectionClass($nextAttribute);
+            $nextLayerReflectionGetAttributeMethod = $nextLayerReflection->getMethod('get' . $layer);
+            $nextAttribute = $nextLayerReflectionGetAttributeMethod->invoke($nextAttribute);
         }
-        return $nextAttributte;
+        return $nextAttribute;
     }
 }
