@@ -4,7 +4,7 @@ FROM composer as dependency-manager
 
 WORKDIR /app
 
-COPY composer.json composer.lock /app
+COPY composer.json composer.lock /app/
 RUN composer install \
     --ignore-platform-reqs \
     --no-ansi \
