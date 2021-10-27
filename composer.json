@@ -1,6 +1,5 @@
 {
   "name": "lucleads/automap",
-  "version": "1.0.0",
   "type": "library",
   "description": "Objects mapper library",
   "keywords": [
