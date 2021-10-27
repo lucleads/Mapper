@@ -12,7 +12,7 @@ This library works in a similar way to libraries like MapStruct in other languag
 
 ## DEPLOY
 
-To deploy de application modify de `.env` file located in the project root with your local settings, open a terminal in the root directory and execute the next command:
+To deploy a sandbox of the library, modify de `.env` file located in the project root with your local settings, open a terminal in the root directory and execute the next command:
 
 - `docker-compose up -d` *[to build and deploy the docker container]*
 
