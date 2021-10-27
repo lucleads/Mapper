@@ -1,7 +1,22 @@
 {
-    "autoload": {
-        "psr-4": {
-            "App\\": "app/"
-        }
+  "name": "automap/automap",
+  "type": "library",
+  "description": "Objects mapper library",
+  "keywords": [
+    "mapper",
+    "map"
+  ],
+  "homepage": "https://github.com/lucleads/Mapper",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Lucas Dante",
+      "email": "lucasdant99@gmail.com"
     }
+  ],
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/"
+    }
+  }
 }
