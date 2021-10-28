@@ -25,7 +25,7 @@ abstract class Mapper
     {
         $mapperReflectionClass = new ReflectionClass($mapperClass);
         $mapperAttributes = $mapperReflectionClass->getAttributes();
-        $entityAttributes = $entity->values();
+        $entityAttributes = get_object_vars($entity);
         $dtoInstance = new $dtoClass();
         $dtoFields = get_class_vars($dtoClass);
 
@@ -122,7 +122,7 @@ abstract class Mapper
         $nextAttribute = $entity;
         foreach ($sourceLayers as $layer) {
             $nextLayerReflection = new ReflectionClass($nextAttribute);
-            $nextLayerReflectionGetAttributeMethod = $nextLayerReflection->getMethod('get' . $layer);
+            $nextLayerReflectionGetAttributeMethod = $nextLayerReflection->getMethod('get' . str_replace('_', '', ucwords($layer, '_')));
             $nextAttribute = $nextLayerReflectionGetAttributeMethod->invoke($nextAttribute);
         }
         return $nextAttribute;
