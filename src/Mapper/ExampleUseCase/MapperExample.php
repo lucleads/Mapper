@@ -1,12 +1,11 @@
 <?php
 
-namespace App\ExampleUseCase;
+namespace lucleads\Mapper\ExampleUseCase;
 
-use App\ExampleUseCase\Entities\Person;
-use App\ExampleUseCase\Entities\ValueObjects\Name;
-use App\ExampleUseCase\Entities\ValueObjects\Phones;
-use App\ExampleUseCase\Mappers\PersonOutputDtoMapper;
-use ReflectionException;
+use lucleads\Mapper\ExampleUseCase\Entities\Person;
+use lucleads\Mapper\ExampleUseCase\Entities\ValueObjects\Name;
+use lucleads\Mapper\ExampleUseCase\Entities\ValueObjects\Phones;
+use lucleads\Mapper\ExampleUseCase\Mappers\PersonOutputDtoMapper;
 
 /**
  * Class MapperExample

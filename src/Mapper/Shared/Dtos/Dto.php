@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Shared\Dtos;
+namespace lucleads\Mapper\Shared\Dtos;
 
-use App\Shared\Traits\Getters;
-use App\Shared\Traits\Setters;
+use lucleads\Mapper\Shared\Traits\Getters;
+use lucleads\Mapper\Shared\Traits\Setters;
 
 /**
  * Class Dto

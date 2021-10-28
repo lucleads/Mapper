@@ -1,6 +1,6 @@
 <?php
 
-namespace App\ExampleUseCase\Entities\ValueObjects;
+namespace lucleads\Mapper\ExampleUseCase\Entities\ValueObjects;
 
 /**
  * Class Name

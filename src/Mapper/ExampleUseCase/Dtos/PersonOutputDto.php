@@ -1,8 +1,8 @@
 <?php
 
-namespace App\ExampleUseCase\Dtos;
+namespace lucleads\Mapper\ExampleUseCase\Dtos;
 
-use App\Shared\Dtos\Dto;
+use lucleads\Mapper\Shared\Dtos\Dto;
 
 /**
  * Class PersonOutputDto

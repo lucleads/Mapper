@@ -1,10 +1,10 @@
 <?php
 
-namespace App\ExampleUseCase\Entities;
+namespace lucleads\Mapper\ExampleUseCase\Entities;
 
-use App\ExampleUseCase\Entities\ValueObjects\Name;
-use App\ExampleUseCase\Entities\ValueObjects\Phones;
-use App\Shared\Traits\Getters;
+use lucleads\Mapper\ExampleUseCase\Entities\ValueObjects\Name;
+use lucleads\Mapper\ExampleUseCase\Entities\ValueObjects\Phones;
+use lucleads\Mapper\Shared\Traits\Getters;
 
 /**
  * Class Person

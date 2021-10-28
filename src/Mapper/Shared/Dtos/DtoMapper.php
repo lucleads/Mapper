@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Shared\Dtos;
+namespace lucleads\Mapper\Shared\Dtos;
 
 use ReflectionException;
 use ReflectionMethod;

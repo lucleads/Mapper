@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Shared\Attributes;
+namespace lucleads\Mapper\Shared\Attributes;
 
 use Attribute;
 

@@ -12,4 +12,4 @@ services:
     ports:
       - ${PORT}:80
     volumes:
-      - ./src:/var/www/html
+      - ./src/Mapper:/var/www/html/src/Mapper

@@ -1,8 +1,9 @@
 <?php
 
+use lucleads\Mapper\ExampleUseCase\MapperExample;
+
 require __DIR__ . '/vendor/autoload.php';
 
-use App\ExampleUseCase\MapperExample;
 
 $app = new MapperExample;
 $app->mapRandomPerson();

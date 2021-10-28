@@ -1,12 +1,12 @@
 <?php
 
-namespace App\ExampleUseCase\Mappers;
+namespace lucleads\Mapper\ExampleUseCase\Mappers;
 
-use App\ExampleUseCase\Dtos\PersonOutputDto;
-use App\ExampleUseCase\Entities\Person;
-use App\Shared\Attributes\Map;
-use App\Shared\Dtos\Dto;
-use App\Shared\Mapper;
+use lucleads\Mapper\ExampleUseCase\Dtos\PersonOutputDto;
+use lucleads\Mapper\ExampleUseCase\Entities\Person;
+use lucleads\Mapper\Shared\Attributes\Map;
+use lucleads\Mapper\Shared\Dtos\Dto;
+use lucleads\Mapper\Shared\Mapper;
 use ReflectionException;
 
 /**

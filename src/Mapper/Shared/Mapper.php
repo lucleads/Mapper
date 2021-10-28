@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Shared;
+namespace lucleads\Mapper\Shared;
 
-use App\Shared\Attributes\Map;
-use App\Shared\Dtos\Dto;
+use lucleads\Mapper\Shared\Attributes\Map;
+use lucleads\Mapper\Shared\Dtos\Dto;
 use ReflectionClass;
 use ReflectionException;
 

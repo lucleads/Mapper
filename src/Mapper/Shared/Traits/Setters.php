@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Shared\Traits;
+namespace lucleads\Mapper\Shared\Traits;
 
 /**
  * Trait Setters
