@@ -55,17 +55,4 @@ final class Person
     {
         return $this->phoneNumbers;
     }
-
-    public function values(): array
-    {
-        $vars = get_class_vars(__CLASS__);
-
-        $str = [];
-
-        foreach ($vars as $key => $value) {
-            $str[$key] = $this->{$key};
-        }
-
-        return $str;
-    }
 }

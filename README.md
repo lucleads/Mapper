@@ -25,51 +25,22 @@ To deploy a sandbox of the library, modify de `.env` file located in the project
 ## HOW TO USE IT
 
 In the path `/src/app/ExampleUseCase` you can find an example of how to implement a mapper.<br>
-The purpose of this library is to copy the values of the common fields of two objects.<br> 
+The purpose of this library is to copy the values of the common fields of two objects.<br>
 For each pair of objects we have to create a mapper class (*Example:* `PersonOutputDtoMapper`).<br>
 That mapper class must extend from the abstract class `Mapper` and must contain in its constructor the entity which contains the fields values.<br>
 In that class, we can make a function (`map()`) that returns an instance of the class needed, for example a Data Transfer Object class.<br>
 The only content of this function should be a static call to its parent class method `mapAutomatically()` with the next parameters:
+
 - **1st parameter:** The source object
 - **2nd parameter:** The output object class expected
 - **3rd parameter:** `self::class` *(The mapper class)*<br>
 
 To make our mapper find the source for the value of each field, there are three ways to do it:
-- The value is in a field with the same name in the source object and in the target object.
-- The source object have a getter with the same name of the field of the target object.
-  - *Example:* 
-    ``` json
-    [
-      "TargetObject",
-      {
-        "age": ?
-      }
-    ]
-    ```
 
-    ``` json
-     [
-        "SourceObject":
-        {
-           "lifetime": 40
-        }
-    ]
-    ```
-    ``` php
-    class SourceObject 
-    {
-        private int $lifetime;
-        
-        public function getAge(): int
-        {
-            return $this->lifetime;
-        }
-    }
-    ```
-    
-- In the  specific MapperClass, we can define the layers to find the value as a class Map attribute.
-  - *Example:*
-    ``` json
+- The value is in a public field with the same name in the source object and in the target object.
+- The source object have a getter with the same name of the field of the target object.
+    - *Example:*
+      ``` json
       [
         "TargetObject",
         {
@@ -77,28 +48,59 @@ To make our mapper find the source for the value of each field, there are three 
         }
       ]
       ```
-     ``` json
-      [
+
+      ``` json
+       [
           "SourceObject":
           {
-            "Age":
-            {
-              "value": 40
-            }
+             "lifetime": 40
           }
       ]
       ```
-
       ``` php
-      #[Map('Age.value', 'age')]
-      class SourceObjectMapper
+      class SourceObject 
       {
-          //logic
+          private int $lifetime;
+          
+          public function getAge(): int
+          {
+              return $this->lifetime;
+          }
       }
       ```
-  
+
+- In the specific MapperClass, we can define the layers to find the value as a class Map attribute.
+    - *Example:*
+      ``` json
+        [
+          "TargetObject",
+          {
+            "age": ?
+          }
+        ]
+        ```
+       ``` json
+        [
+            "SourceObject":
+            {
+              "Age":
+              {
+                "value": 40
+              }
+            }
+        ]
+        ```
+
+        ``` php
+        #[Map('Age.value', 'age')]
+        class SourceObjectMapper
+        {
+            //logic
+        }
+        ```
+
   ***NOTE:** To define a map attributes, we must follow the next structure:<br>
-      `#[Map(` <br>+<br> `layers up the value separated by dots as string`<br>+<br>`,`<br>+<br>`field name in target object as string`<br>+<br>`]`
+  `#[Map(` <br>+<br> `layers up the value separated by dots as string`<br>+<br>`,`<br>+<br>`field name in target object as string`<br>+<br>`]`
 
 ## REQUIREMENTS
 
