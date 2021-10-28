@@ -24,29 +24,43 @@ abstract class Mapper
     public static function mapAutomatically($entity, $dtoClass, $mapperClass): Dto
     {
         $mapperReflectionClass = new ReflectionClass($mapperClass);
-        $mapperAttributes = $mapperReflectionClass->getAttributes();
+        $mapperAttributesInstances = self::filterAttributes($mapperReflectionClass->getAttributes());
         $entityAttributes = get_object_vars($entity);
         $dtoInstance = new $dtoClass();
         $dtoFields = get_class_vars($dtoClass);
 
         foreach ($dtoFields as $dtoFieldName => $dtoFieldValue) {
-            if (empty($mapperAttributes)) {
+            if (empty($mapperAttributesInstances)) {
                 self::searchFieldValueOutOfAttributes($dtoFieldName, $entityAttributes, $dtoInstance, $entity);
             } else {
-                foreach ($mapperAttributes as $mapperAttribute) {
-                    $attributeInstance = $mapperAttribute->newInstance();
-                    if ($attributeInstance instanceof Map) {
-                        if ($dtoFieldName === $attributeInstance->getDtoField()) {
-                            self::searchFieldSourceInMapperAttributes($attributeInstance, $entity, $dtoInstance, $dtoFieldName);
-                        } else {
-                            self::searchFieldValueOutOfAttributes($dtoFieldName, $entityAttributes, $dtoInstance, $entity);
-                        }
+                foreach ($mapperAttributesInstances as $mapperAttributeInstance) {
+                    if ($dtoFieldName === $mapperAttributeInstance->getDtoField()) {
+                        self::searchFieldSourceInMapperAttributes($mapperAttributeInstance, $entity, $dtoInstance, $dtoFieldName);
+                    } else {
+                        self::searchFieldValueOutOfAttributes($dtoFieldName, $entityAttributes, $dtoInstance, $entity);
                     }
                 }
             }
         }
 
         return $dtoInstance;
+    }
+
+    /**
+     * filterAttributes
+     * @param array $classAttributes
+     * @return array
+     */
+    private static function filterAttributes(array $classAttributes): array
+    {
+        $mapAttributesInstances = [];
+        foreach ($classAttributes as $classAttribute) {
+            $attributeInstance = $classAttribute->newInstance();
+            if ($attributeInstance instanceof Map) {
+                array_push($mapAttributesInstances, $attributeInstance);
+            }
+        }
+        return $mapAttributesInstances;
     }
 
     /**
