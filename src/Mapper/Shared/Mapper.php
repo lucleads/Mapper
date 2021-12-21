@@ -30,15 +30,21 @@ abstract class Mapper
         $dtoFields = get_class_vars($dtoClass);
 
         foreach ($dtoFields as $dtoFieldName => $dtoFieldValue) {
+            $valueFinded = false;
+            
             if (empty($mapperAttributesInstances)) {
                 self::searchFieldValueOutOfAttributes($dtoFieldName, $entityAttributes, $dtoInstance, $entity);
             } else {
                 foreach ($mapperAttributesInstances as $mapperAttributeInstance) {
                     if ($dtoFieldName === $mapperAttributeInstance->getDtoField()) {
                         self::searchFieldSourceInMapperAttributes($mapperAttributeInstance, $entity, $dtoInstance, $dtoFieldName);
-                    } else {
-                        self::searchFieldValueOutOfAttributes($dtoFieldName, $entityAttributes, $dtoInstance, $entity);
+                        $valueFinded = true;
+                        break;
                     }
+                }
+                
+                if(!$valueFinded) {
+                    self::searchFieldValueOutOfAttributes($dtoFieldName, $entityAttributes, $dtoInstance, $entity);
                 }
             }
         }
